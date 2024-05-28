@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import RingLoader
+  from "react-spinners/RingLoader";
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 4000)
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        loading ?
+
+          <RingLoader color="#36d7b7" />
+          :
+          <img src='https://giffiles.alphacoders.com/544/54454.gif' />
+      }
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+ 
